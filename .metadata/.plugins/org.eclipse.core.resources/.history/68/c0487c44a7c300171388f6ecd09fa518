@@ -1,0 +1,201 @@
+package TestCases;
+
+
+
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class TC_002 {
+
+	@Test
+	public void testcase1() throws InterruptedException
+	{
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Driver/chromedriver/chromedriver");
+		ChromeDriver driver  = new ChromeDriver();
+		driver.get("https://www.fadvassessments.com/onlinetesting/gamma.html");
+		driver.findElementByName("ID").sendKeys("qatest");
+		driver.findElementByName("username").sendKeys("administrator");
+		driver.findElementByName("password").sendKeys("Sk1llCheck!");
+		driver.findElementByName("login").click();
+		//driver.findElementById("html/body/table[3]/tbody/tr/td/table/tbody/tr/td/font/table/tbody/tr/td/font/ul/form/table/tbody/tr[1]/td/a/b").clear();
+		driver.findElement(By.linkText("Administer Testing")).click();
+		driver.findElement(By.linkText("Administer Tests")).click();
+		driver.findElement(By.xpath("//select[@id='all_tests']/option[@value='ENASPT12014']")).click();
+		driver.findElement(By.xpath("//input[@name='add']")).click();
+		driver.findElement(By.xpath("//select[@name='sub_tests']/option[@value='ENASPT12014']")).click();
+		driver.findElement(By.xpath("//input[@value='Begin Testing']")).click();
+		//driver.findElement(By.xpath("//h2[@id='headerData']")).wait(10);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//input[@id='txtFirstName']")).sendKeys("Ganesan");
+		driver.findElement(By.xpath("//input[@id='txtLastName']")).sendKeys("Sivarama");
+		driver.findElement(By.xpath("//input[@id='txtEmail']")).sendKeys("Ganesan123");
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//option[@value='Male']")).click();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//option[@value='Under 40']")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//option[@value='Caucasian']")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//option[@value='I prefer not to answer']")).click();
+		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//button[@id='btnCompleteReg']")).click();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//button[@id='btnBeginTest']")).click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Thread.sleep(5000);
+		
+		//*********************************************
+		//By mySelector = By.xpath("//button[@id='btnAnswerCompletemobile']");
+		//System.out.println("stop");
+		 //List<WebElement> myElement = driver.findElements(By.xpath(".//*[@id='itemWrapper']/div[2]//button"));
+         //for(WebElement e : myElement ){
+        	
+		 //System.out.println(e.getText());
+	
+			WebDriverWait wait = new WebDriverWait(driver,40);
+		    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='itemWrapper']/div[2]//button")));   
+		    WebElement el = driver.findElement(By.xpath(".//*[@id='itemWrapper']/div[2]//button"));
+		    Actions act=new Actions(driver);
+		    act.moveToElement(el).click().build().perform();
+		
+		
+		Thread.sleep(1000);
+		
+	    //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='itemWrapper']/div[2]//button")));   
+	   WebElement elt = driver.findElement(By.xpath(".//*[@id='itemWrapper']/div[2]//button"));
+	   Actions actt=new Actions(driver);		
+	   act.moveToElement(elt).click().build().perform();
+	    actt.moveToElement(el).click();
+	
+	   
+		
+	   // driver.findElement(By.xpath(".//*[@id='itemWrapper']/div[2]//button")).click();
+		//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//btnAnswerComplete
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='btnAnswerCompletemobile']")));
+		
+		//driver.findElement(By.xpath("//*[@id='btnAnswerCompletemobile']")).click();
+	
+		//************************************************
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	
+	   // wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='simArea']//*[@id='options_btn0']")));   
+			
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='options_btn0']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+
+		 
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='simArea']//*[@id='button3']")));   
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		//driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		//WebElement eltt = driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']"));
+		//Actions acttt=new Actions(driver);		
+		//acttt.moveToElement(eltt).click().build().perform();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='simArea']//*[@id='button3']")));   
+		 
+		Thread.sleep(4000);
+		
+		//driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();	
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		WebElement  sourcelocator1 = driver.findElement(By.xpath(".//*[@id='draggables_rtx1']"));
+		WebElement destinationlocator1 =driver.findElement(By.xpath(".//*[@id='droppables_tr2']"));
+	    Actions drag1=new Actions(driver);
+	    drag1.dragAndDrop(sourcelocator1,destinationlocator1).perform();
+	    
+	    Thread.sleep(1000);
+		WebElement  sourcelocator2 = driver.findElement(By.xpath(".//*[@id='draggables_rtx2']"));
+		WebElement destinationlocator2 =driver.findElement(By.xpath(".//*[@id='droppables_tr4']"));
+	    Actions drag2=new Actions(driver);
+	    drag2.dragAndDrop(sourcelocator2,destinationlocator2).perform();
+	    
+	    Thread.sleep(1000);
+		WebElement  sourcelocator3 = driver.findElement(By.xpath(".//*[@id='draggables_rtx3']"));
+		WebElement destinationlocator3 =driver.findElement(By.xpath(".//*[@id='droppables_tr0']"));
+	    Actions drag3=new Actions(driver);
+	    drag3.dragAndDrop(sourcelocator3,destinationlocator3).perform();
+	    
+	    Thread.sleep(1000);
+		WebElement  sourcelocator4 = driver.findElement(By.xpath(".//*[@id='draggables_rtx4']"));
+		WebElement destinationlocator4 =driver.findElement(By.xpath(".//*[@id='droppables_tr3']"));
+	    Actions drag4=new Actions(driver);
+	    drag4.dragAndDrop(sourcelocator4,destinationlocator4).perform();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		
+	    
+		Thread.sleep(4000);
+		WebElement  sourcelocator11 = driver.findElement(By.xpath(".//*[@id='returnareas_tr0']"));
+		WebElement destinationlocator11 =driver.findElement(By.xpath(".//*[@id='droppablelabels_rtx0']"));
+	    Actions drag11=new Actions(driver);
+	    drag11.dragAndDrop(sourcelocator11,destinationlocator11).perform();
+	    
+	    Thread.sleep(2000);
+		WebElement  sourcelocator22 = driver.findElement(By.xpath(".//*[@id='returnareas_tr1']"));
+		WebElement destinationlocator22 =driver.findElement(By.xpath(".//*[@id='droppablelabels_rtx4']"));
+	    Actions drag22=new Actions(driver);
+	    drag22.dragAndDrop(sourcelocator22,destinationlocator22).perform();
+	    
+	    Thread.sleep(2000);
+		WebElement  sourcelocator33 = driver.findElement(By.xpath(".//*[@id='returnareas_tr3']"));
+		WebElement destinationlocator33 =driver.findElement(By.xpath(".//*[@id='droppablelabels_rtx2']"));
+	    Actions drag33=new Actions(driver);
+	    drag33.dragAndDrop(sourcelocator33,destinationlocator33).perform();
+	    
+	    Thread.sleep(2000);
+		WebElement  sourcelocator44 = driver.findElement(By.xpath(".//*[@id='returnareas_tr4']"));
+		WebElement destinationlocator44 =driver.findElement(By.xpath(".//*[@id='droppablelabels_rtx1']"));
+	    Actions drag44=new Actions(driver);
+	    drag44.dragAndDrop(sourcelocator44,destinationlocator44).perform();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@id='simArea']//*[@id='button3']")).click();
+		driver.findElement(By.xpath("//button[@id='btnAnswerComplete']")).click();
+		//driver.quit();
+		
+	}
+}
